@@ -1,0 +1,158 @@
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]# # to know present working directory
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]# pwd
+/home/ec2-user
+[root@ip-172-31-34-86 ec2-user]# ls
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]# ls -a # is uesd to see all the hidden directory files
+.  ..  .bash_logout  .bash_profile  .bashrc  .ssh
+[root@ip-172-31-34-86 ec2-user]# ls -sh
+total 0
+[root@ip-172-31-34-86 ec2-user]# ls -l
+total 0
+[root@ip-172-31-34-86 ec2-user]# hostname
+ip-172-31-34-86.ap-south-1.compute.internal
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]# # uname is used to display the system information.
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]# uname
+Linux
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]# uname -a --all
+Linux ip-172-31-34-86.ap-south-1.compute.internal 5.14.0-427.20.1.el9_4.x86_64 #1 SMP PREEMPT_DYNAMIC Thu May 23 16:37:13 EDT 2024 x86_64 x86_64 x86_64 GNU/Linux
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]# uname -s --kernel-name
+Linux
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]# uname -n --nodename
+ip-172-31-34-86.ap-south-1.compute.internal
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]# uname -r --kernel-release
+5.14.0-427.20.1.el9_4.x86_64
+[root@ip-172-31-34-86 ec2-user]# uname -v --kernel-version
+#1 SMP PREEMPT_DYNAMIC Thu May 23 16:37:13 EDT 2024
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]# uname -m
+x86_64
+[root@ip-172-31-34-86 ec2-user]# uname -p
+x86_64
+[root@ip-172-31-34-86 ec2-user]# uname -p --processor
+x86_64
+[root@ip-172-31-34-86 ec2-user]# uname -i
+x86_64
+[root@ip-172-31-34-86 ec2-user]# uname -i --hardware-platform
+x86_64
+[root@ip-172-31-34-86 ec2-user]# uname -o
+GNU/Linux
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]# # checking the present working directory
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]# pwd
+/home/ec2-user
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]# # torch is used to create the file and it is even used for the time stamp purpose also.
+[root@ip-172-31-34-86 ec2-user]# # relative path-> if we working in the pwd then it is a relative path
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]# touch f1 f2 f3 f4
+[root@ip-172-31-34-86 ec2-user]# ls
+f1  f2  f3  f4
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]# # absolute path -> we can create the file in the other directory, we can do it by mentioning the directory
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]# touch home/testfile
+touch: cannot touch 'home/testfile': No such file or directory
+[root@ip-172-31-34-86 ec2-user]# touch /home/testfile
+[root@ip-172-31-34-86 ec2-user]# ls
+f1  f2  f3  f4
+[root@ip-172-31-34-86 ec2-user]# cd /home
+[root@ip-172-31-34-86 home]# ls
+ec2-user  testfile
+[root@ip-172-31-34-86 home]# pwd
+/home
+[root@ip-172-31-34-86 home]# cd ec2-user
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]# ls /home
+ec2-user  testfile
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]# # cat --> by using the cat command we can write the data and we can view the data & we can add the data even after saving the file.
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]# # to save the cat file we have to press ctrl+D
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]# cat >cute
+Do you know this is a test file??
+[root@ip-172-31-34-86 ec2-user]# # to view the cat file we need to press the cat file_name
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]# cat cute
+Do you know this is a test file??
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]# # to add extra contenet inside the cat file we need to type  cat >> file_name
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]# cat >> cute
+Is it really cute?
+[root@ip-172-31-34-86 ec2-user]# cat cute
+Do you know this is a test file??
+Is it really cute?
+[root@ip-172-31-34-86 ec2-user]# # hurray its worked.
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]# # but we have some disadvantages like edit, or rewrite content in the cat commant so we use vi
+[root@ip-172-31-34-86 ec2-user]# # vi means virtual editor.
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]# vi abc
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]# # now check the data
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]# cat abc
+Hello I am insert mode by pressing esc and then i
+for sacing this contenet i have to press
+
+esc : wq! where wq means write and quit
+
+[root@ip-172-31-34-86 ec2-user]# # by using the vi editor we can rewrite / edit or do what ever you want.
+[root@ip-172-31-34-86 ec2-user]#
+[root@ip-172-31-34-86 ec2-user]# vi abc
+[root@ip-172-31-34-86 ec2-user]# cat abc
+Hello I am insert mode by pressing esc and then i
+for sacing this contenet i have to press
+
+esc : wq! where wq means write and quit
+
+
+Entering new data.
+
+to delete a line esc dd
+to replace an entire line esc shift r
+to insert a new line esc o
+to insert a new line above the cursor esc shift o
+to delte a word esc dw
+to copy a line esc yy
+to paste a line esc p
+:  set nu is used to set the line numbers
+
+[root@ip-172-31-34-86 ec2-user]# cat -n abc
+     1  Hello I am insert mode by pressing esc and then i
+     2  for sacing this contenet i have to press
+     3
+     4  esc : wq! where wq means write and quit
+     5
+     6
+     7  Entering new data.
+     8
+     9  to delete a line esc dd
+    10  to replace an entire line esc shift r
+    11  to insert a new line esc o
+    12  to insert a new line above the cursor esc shift o
+    13  to delte a word esc dw
+    14  to copy a line esc yy
+    15  to paste a line esc p
+    16  :  set nu is used to set the line numbers
+    17
+[root@ip-172-31-34-86 ec2-user]#
