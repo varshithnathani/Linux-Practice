@@ -1,0 +1,225 @@
+[root@ip-172-31-45-65 testdir]# cp -rf * /home/ec2-user
+[root@ip-172-31-45-65 testdir]#
+[root@ip-172-31-45-65 testdir]# cd /home
+[root@ip-172-31-45-65 home]# ls
+ec2-user  f1fromtestdir  testdir
+[root@ip-172-31-45-65 home]#
+[root@ip-172-31-45-65 home]# cd ec2-user
+[root@ip-172-31-45-65 ec2-user]# ls
+dir1  dir12  dir23  f1  f2  f3
+[root@ip-172-31-45-65 ec2-user]#
+[root@ip-172-31-45-65 ec2-user]# # all files and directories are copied.
+[root@ip-172-31-45-65 ec2-user]# # lets copy one directory to another
+[root@ip-172-31-45-65 ec2-user]#
+[root@ip-172-31-45-65 ec2-user]# # for that we choose dir12 and create some files in it.
+[root@ip-172-31-45-65 ec2-user]#
+[root@ip-172-31-45-65 ec2-user]# cd /home/dir12
+bash: cd: /home/dir12: No such file or directory
+[root@ip-172-31-45-65 ec2-user]# cd /home/ec2-user/dir12
+[root@ip-172-31-45-65 dir12]#
+[root@ip-172-31-45-65 dir12]# pwd
+/home/ec2-user/dir12
+[root@ip-172-31-45-65 dir12]#
+[root@ip-172-31-45-65 dir12]# ls
+[root@ip-172-31-45-65 dir12]# touch f12 f122 f1222
+[root@ip-172-31-45-65 dir12]#
+[root@ip-172-31-45-65 dir12]# ls
+f12  f122  f1222
+[root@ip-172-31-45-65 dir12]# cd /home/ec2-user
+[root@ip-172-31-45-65 ec2-user]#
+[root@ip-172-31-45-65 ec2-user]# ls
+dir1  dir12  dir23  f1  f2  f3
+[root@ip-172-31-45-65 ec2-user]# cp -r dir12 dir2112
+[root@ip-172-31-45-65 ec2-user]#
+[root@ip-172-31-45-65 ec2-user]# ls
+dir1  dir12  dir2112  dir23  f1  f2  f3
+[root@ip-172-31-45-65 ec2-user]# cd /home/ec2-user/dir2112
+[root@ip-172-31-45-65 dir2112]# ls
+f12  f122  f1222
+[root@ip-172-31-45-65 dir2112]#
+[root@ip-172-31-45-65 dir2112]# cd ..
+[root@ip-172-31-45-65 ec2-user]#
+[root@ip-172-31-45-65 ec2-user]# # now i want to copy the directory dir12 to /d1
+[root@ip-172-31-45-65 ec2-user]#
+[root@ip-172-31-45-65 ec2-user]# cp -r dir12 /d1
+[root@ip-172-31-45-65 ec2-user]# cd /d
+bash: cd: /d: No such file or directory
+[root@ip-172-31-45-65 ec2-user]# cd /d1
+[root@ip-172-31-45-65 d1]# ls
+d2  dir12
+[root@ip-172-31-45-65 d1]# cd /home/ec2-user
+[root@ip-172-31-45-65 ec2-user]#
+[root@ip-172-31-45-65 ec2-user]#
+[root@ip-172-31-45-65 ec2-user]#
+[root@ip-172-31-45-65 ec2-user]# ls
+dir1  dir12  dir23  f1  f2  f3
+[root@ip-172-31-45-65 ec2-user]#
+[root@ip-172-31-45-65 ec2-user]# cd /home
+[root@ip-172-31-45-65 home]# ls
+dir2112  ec2-user  f1fromtestdir  testdir
+[root@ip-172-31-45-65 home]#
+[root@ip-172-31-45-65 home]# cd /home/ec2-user
+[root@ip-172-31-45-65 ec2-user]#
+[root@ip-172-31-45-65 ec2-user]# # let's see remove options in linux
+[root@ip-172-31-45-65 ec2-user]#
+[root@ip-172-31-45-65 ec2-user]# ls
+dir1  dir12  dir23  f1  f2  f3
+[root@ip-172-31-45-65 ec2-user]# # removing files
+[root@ip-172-31-45-65 ec2-user]#
+[root@ip-172-31-45-65 ec2-user]# rm f2
+rm: remove regular empty file 'f2'? Y
+[root@ip-172-31-45-65 ec2-user]#
+[root@ip-172-31-45-65 ec2-user]# # we can remove forcefully by adding -f
+[root@ip-172-31-45-65 ec2-user]#
+[root@ip-172-31-45-65 ec2-user]# rm -f f1
+[root@ip-172-31-45-65 ec2-user]#
+[root@ip-172-31-45-65 ec2-user]# # lets remove a directory
+[root@ip-172-31-45-65 ec2-user]#
+[root@ip-172-31-45-65 ec2-user]# rm -r dir12
+rm: descend into directory 'dir12'? Y
+rm: remove regular empty file 'dir12/f12'? Y
+rm: remove regular empty file 'dir12/f122'? Y
+rm: remove regular empty file 'dir12/f1222'? Y
+rm: remove directory 'dir12'? Y
+[root@ip-172-31-45-65 ec2-user]#
+[root@ip-172-31-45-65 ec2-user]# # even we can remove directory by forcefully
+[root@ip-172-31-45-65 ec2-user]# # Note: Once deleted there is no return back in Linux..:)
+[root@ip-172-31-45-65 ec2-user]#
+[root@ip-172-31-45-65 ec2-user]# rm -rf dir23
+[root@ip-172-31-45-65 ec2-user]#
+[root@ip-172-31-45-65 ec2-user]# ls
+dir1  f3
+[root@ip-172-31-45-65 ec2-user]# # we can remove all the files and directories in a single command
+[root@ip-172-31-45-65 ec2-user]# # Note: it should not be used until we get a conformation from the respected departments.. :)
+[root@ip-172-31-45-65 ec2-user]#
+[root@ip-172-31-45-65 ec2-user]# # first let me change my pwd
+[root@ip-172-31-45-65 ec2-user]#
+[root@ip-172-31-45-65 ec2-user]# cd /home
+[root@ip-172-31-45-65 home]# ls
+dir2112  ec2-user  f1fromtestdir  testdir
+[root@ip-172-31-45-65 home]# cd /home/testdir
+[root@ip-172-31-45-65 testdir]# ls
+dir12  dir23  f1  f2  f3
+[root@ip-172-31-45-65 testdir]# ok
+bash: ok: command not found
+[root@ip-172-31-45-65 testdir]# # lets remove all
+[root@ip-172-31-45-65 testdir]#
+[root@ip-172-31-45-65 testdir]# rm -rf *
+[root@ip-172-31-45-65 testdir]# ls
+[root@ip-172-31-45-65 testdir]#
+[root@ip-172-31-45-65 testdir]# # Hurrah :)   :) its done.. :)
+[root@ip-172-31-45-65 testdir]#
+[root@ip-172-31-45-65 testdir]#
+[root@ip-172-31-45-65 testdir]#
+[root@ip-172-31-45-65 testdir]# # we had concept called as links
+[root@ip-172-31-45-65 testdir]# # 1. Soft link       2. Hard Link
+[root@ip-172-31-45-65 testdir]# # soft link: soft link can link across the file system directories(If main file is deleted all are collapsed)
+[root@ip-172-31-45-65 testdir]# #            soft links are like shortcuts in windos(Ex: main application will be in c drive and access it from desktop)
+[root@ip-172-31-45-65 testdir]#
+[root@ip-172-31-45-65 testdir]# # Hard link: hard links can link with in the file system directories (It will use extra space in the disk) (It will not collapse if the main files are deleted also we can have the data until the last link.)
+[root@ip-172-31-45-65 testdir]#
+[root@ip-172-31-45-65 testdir]# # let's create some links :)
+[root@ip-172-31-45-65 testdir]#
+[root@ip-172-31-45-65 testdir]#
+[root@ip-172-31-45-65 testdir]# ls
+[root@ip-172-31-45-65 testdir]#
+[root@ip-172-31-45-65 testdir]# pwd
+/home/testdir
+[root@ip-172-31-45-65 testdir]# cat > file1
+This file is from testdir
+[root@ip-172-31-45-65 testdir]#
+[root@ip-172-31-45-65 testdir]# # " ln " is used to link
+[root@ip-172-31-45-65 testdir]#
+[root@ip-172-31-45-65 testdir]# # let's move to ec2-user and link it there
+[root@ip-172-31-45-65 testdir]#
+[root@ip-172-31-45-65 testdir]# cd /home/ec2-user
+[root@ip-172-31-45-65 ec2-user]#
+[root@ip-172-31-45-65 ec2-user]# ls
+dir1  f3
+[root@ip-172-31-45-65 ec2-user]# ln -s /home/testdir/file1 sl1
+[root@ip-172-31-45-65 ec2-user]#
+[root@ip-172-31-45-65 ec2-user]# ls
+dir1  f3  sl1
+[root@ip-172-31-45-65 ec2-user]# ls -h
+dir1  f3  sl1
+[root@ip-172-31-45-65 ec2-user]# ls -l
+total 0
+drwxr-xr-x. 2 root root  6 Dec 20 14:17 dir1
+-rw-r--r--. 1 root root  0 Dec 20 14:26 f3
+lrwxrwxrwx. 1 root root 19 Dec 20 15:03 sl1 -> /home/testdir/file1
+[root@ip-172-31-45-65 ec2-user]# cat sl1
+This file is from testdir
+[root@ip-172-31-45-65 ec2-user]#
+[root@ip-172-31-45-65 ec2-user]# cat >> sl1
+This is new text
+does it work
+lets hope :)
+[root@ip-172-31-45-65 ec2-user]# cat sl1
+This file is from testdir
+This is new text
+does it work
+lets hope :)
+[root@ip-172-31-45-65 ec2-user]# # let's check in the main file also
+[root@ip-172-31-45-65 ec2-user]#
+[root@ip-172-31-45-65 ec2-user]# cd /home/testdir
+[root@ip-172-31-45-65 testdir]# ls
+file1
+[root@ip-172-31-45-65 testdir]# cat file1
+This file is from testdir
+This is new text
+does it work
+lets hope :)
+[root@ip-172-31-45-65 testdir]#
+[root@ip-172-31-45-65 testdir]# # :) Hurray its worked..
+[root@ip-172-31-45-65 testdir]#
+[root@ip-172-31-45-65 testdir]# # Now let's delete the main file in the testdir to check the soft link conditions;
+[root@ip-172-31-45-65 testdir]# # if the main file is deleted which is connected to soft link then data is lost.
+[root@ip-172-31-45-65 testdir]#
+[root@ip-172-31-45-65 testdir]# rm -f file1
+[root@ip-172-31-45-65 testdir]# ls
+[root@ip-172-31-45-65 testdir]#
+[root@ip-172-31-45-65 testdir]# # Now we test Hard Links  :)   :)
+[root@ip-172-31-45-65 testdir]#
+[root@ip-172-31-45-65 testdir]#
+[root@ip-172-31-45-65 testdir]# cat > myfile1
+This is using for Hard Link
+[root@ip-172-31-45-65 testdir]#
+[root@ip-172-31-45-65 testdir]# ls
+myfile1
+[root@ip-172-31-45-65 testdir]#
+[root@ip-172-31-45-65 testdir]# # Hard link in this directory
+[root@ip-172-31-45-65 testdir]#
+[root@ip-172-31-45-65 testdir]# ln myfile1 hl1
+[root@ip-172-31-45-65 testdir]# ls
+hl1  myfile1
+[root@ip-172-31-45-65 testdir]# ls -l hl1
+-rw-r--r--. 2 root root 29 Dec 20 15:09 hl1
+[root@ip-172-31-45-65 testdir]#
+[root@ip-172-31-45-65 testdir]# # hard link in differcnt directory. (Lets link it in ec2-user)
+[root@ip-172-31-45-65 testdir]#
+[root@ip-172-31-45-65 testdir]# cd myfile1 /home/ec2-user
+bash: cd: too many arguments
+[root@ip-172-31-45-65 testdir]# ln myfile1 /home/ec2-user
+[root@ip-172-31-45-65 testdir]# ln myfile1 /home/ec2-user hl1
+ln: target 'hl1': Not a directory
+[root@ip-172-31-45-65 testdir]# ln myfile1 /home/ec2-user/hl1
+[root@ip-172-31-45-65 testdir]# cd /home/ec2-user
+[root@ip-172-31-45-65 ec2-user]# ls
+dir1  f3  hl1  myfile1  sl1
+[root@ip-172-31-45-65 ec2-user]#
+[root@ip-172-31-45-65 ec2-user]# cd /home/testdir
+[root@ip-172-31-45-65 testdir]#
+[root@ip-172-31-45-65 testdir]# # let's check the inode number (bcz in hardlink it can use same inode number).
+[root@ip-172-31-45-65 testdir]#
+[root@ip-172-31-45-65 testdir]# ls -i myfile1
+9098387 myfile1
+[root@ip-172-31-45-65 testdir]# ls -i hl1
+9098387 hl1
+[root@ip-172-31-45-65 testdir]# # let's remove the original file
+[root@ip-172-31-45-65 testdir]#
+[root@ip-172-31-45-65 testdir]# rm -f myfile1
+[root@ip-172-31-45-65 testdir]# ls
+hl1
+[root@ip-172-31-45-65 testdir]# cat hl1
+This is using for Hard Link
+[root@ip-172-31-45-65 testdir]# 
